@@ -1,0 +1,11 @@
+<h1>メッセージ一覧</h1>
+
+<ul>
+  <% @messages.each do |message| %> <!--Controllerで定義した @messages というレコード群からレコードを１つずつ取り出す-->
+    <li><%= link_to message.content, message%></li> <!--contentカラムの値を表示-->
+  <% end %>
+</ul>
+
+<%= link_to "新規メッセージの投稿", new_message_path %>
+
+<!---->
