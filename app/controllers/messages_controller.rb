@@ -51,6 +51,6 @@ class MessagesController < ApplicationController
   end
   
   def message_params # newからcreateへ送られてきたフォームの内容の代入
-    params.require(:message).permit(:content) 
+    params.require(:message).permit(:content, :title) 
   end
 end
