@@ -1,10 +1,11 @@
 class MessagesController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  
   def index
     @messages = Message.all # Messageレコードを全て取得して、@messages（インスタンス変数）に代入
   end
 
   def show
-    @message = Message.find(params[:id])
   end
 
   def new
@@ -24,12 +25,9 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    @message = Message.find(params[:id])
   end
 
   def update
-    @message = Message.find(params[:id])
-    
     if @message.update(message_params)
       flash[:success] = "メッセージが更新されました"
       redirect_to @message
@@ -40,7 +38,6 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
     @message.destroy
     
     flash[:success] = "メッセージは削除されました"
@@ -48,6 +45,10 @@ class MessagesController < ApplicationController
   end
   
   private # Strong Parameter
+  
+  def set_message
+    @message = Message.find(params[:id])
+  end
   
   def message_params # newからcreateへ送られてきたフォームの内容の代入
     params.require(:message).permit(:content) 

@@ -1,0 +1,6 @@
+<%= form_with(model: @message ) %> do |f| %> <!--フォームの設置-->
+  <%= f.label :content, "メッセージ" %>
+  <%= f.text_field :content %>
+  
+  <%= f.submit "投稿" %> <!--送信ボタン-->
+<% end %>

@@ -1,11 +1,6 @@
 <h1>メッセージ新規作成ページ</h1>
 
-<%= form_with(model: @message ) %> do |f| %> <!--フォームの設置-->
-  <%= f.label :content, "メッセージ" %>
-  <%= f.text_field :content %>
-  
-  <%= f.submit "投稿" %> <!--送信ボタン-->
-<% end %>
+<%= render "form", message: @message %>
 
 <%= link_to "トップページに戻る", root_path %>
 
