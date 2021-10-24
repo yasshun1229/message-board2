@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   
   def index
-    @messages = Message.all # Messageレコードを全て取得して、@messages（インスタンス変数）に代入
+    @pagy, @messages = pagy(Message.order(id: :desc), items: 25) # Messageレコードを全て取得して、@messages（インスタンス変数）に代入
   end
 
   def show
