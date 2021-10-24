@@ -6,8 +6,9 @@
 # Message.create(title: "test title 3 ", content: "test content3")
 
 # レコードを100件表示する
-(1..100).each do |number|
-  Message.create(title: "test title" + number.to_s, content: "test content" + number.to_s )
-end
+# (1..100).each do |number|
+#   Message.create(title: "test title" + number.to_s, content: "test content" + number.to_s )
+# end
 
 # rails db:seed
+# rails db:reset データベースのリセット
